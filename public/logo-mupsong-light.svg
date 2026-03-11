@@ -5,8 +5,8 @@
       <stop offset="100%" stop-color="#06b6d4"/>
     </linearGradient>
     <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#f5f5f5"/>
-      <stop offset="100%" stop-color="#d4d4d4"/>
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#1a1a1a"/>
     </linearGradient>
   </defs>
   
@@ -27,5 +27,5 @@
   <text x="215" y="44" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="36" font-weight="700" letter-spacing="3" fill="url(#textGrad)" text-anchor="middle">MUPSONG</text>
   
   <!-- Tagline -->
-  <text x="215" y="60" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="10" font-weight="400" letter-spacing="5" fill="#3b82f6" opacity="0.7" text-anchor="middle">STREAM BEYOND</text>
+  <text x="215" y="60" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="10" font-weight="400" letter-spacing="5" fill="#2563eb" opacity="0.9" text-anchor="middle">STREAM BEYOND</text>
 </svg>
