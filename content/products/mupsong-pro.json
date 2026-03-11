@@ -1,0 +1,27 @@
+{
+  "id": "mupsong-pro",
+  "slug": "mupsong-pro",
+  "name": "Mupsong Pro",
+  "tagline": "Your Gateway to Unlimited Entertainment",
+  "description": "Experience seamless 4K streaming with the Mupsong Pro. Powered by cutting-edge hardware and an optimized smart OS.",
+  "price": 11900,
+  "comparePrice": 14900,
+  "images": ["/images/products/mupsong-pro-1.jpg", "/images/products/mupsong-pro-2.jpg", "/images/products/mupsong-pro-3.jpg"],
+  "specs": {
+    "cpu": "TBD",
+    "gpu": "TBD",
+    "ram": "TBD",
+    "storage": "TBD",
+    "os": "Android TV",
+    "wifi": "TBD",
+    "bluetooth": "TBD",
+    "hdmi": "HDMI 2.1",
+    "resolution": "4K Ultra HD"
+  },
+  "variants": [
+    { "id": "standard", "name": "Standard", "price": 9900, "sku": "MPS-STD-001", "stock": 100 },
+    { "id": "pro", "name": "Pro", "price": 11900, "sku": "MPS-PRO-001", "stock": 100 },
+    { "id": "max", "name": "Max", "price": 13900, "sku": "MPS-MAX-001", "stock": 50 }
+  ],
+  "inStock": true
+}
