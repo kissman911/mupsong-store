@@ -1,5 +1,6 @@
 'use client'
 
+import { use, useState } from 'react'
 import { notFound } from 'next/navigation'
 import { getProduct, formatPrice } from '@/lib/products'
 import { ProductGallery } from '@/components/ProductGallery'
@@ -7,10 +8,10 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { useCart } from '@/lib/cart'
-import { useState } from 'react'
 
-export default function ProductDetailPage({ params }: { params: { slug: string } }) {
-  const product = getProduct(params.slug)
+export default function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params)
+  const product = getProduct(slug)
   if (!product) notFound()
 
   const [selectedVariant, setSelectedVariant] = useState(product.variants[1] ?? product.variants[0])
