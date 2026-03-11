@@ -33,17 +33,11 @@ function saveCart(items: CartItem[]) {
 }
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>([])
-  const [mounted, setMounted] = useState(false)
+  const [items, setItems] = useState<CartItem[]>(() => loadCart())
 
   useEffect(() => {
-    setItems(loadCart())
-    setMounted(true)
-  }, [])
-
-  useEffect(() => {
-    if (mounted) saveCart(items)
-  }, [items, mounted])
+    saveCart(items)
+  }, [items])
 
   const addItem = useCallback((item: CartItem) => {
     setItems((prev) => {

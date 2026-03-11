@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" fill="none">
+  <defs>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f5f5f5"/>
+      <stop offset="100%" stop-color="#d4d4d4"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Icon: Rounded rectangle (TV screen) with play triangle -->
+  <rect x="10" y="18" width="64" height="48" rx="10" ry="10" stroke="url(#glow)" stroke-width="3" fill="none"/>
+  <!-- Screen inner glow -->
+  <rect x="16" y="24" width="52" height="36" rx="6" ry="6" fill="url(#glow)" opacity="0.08"/>
+  <!-- Play triangle -->
+  <polygon points="36,34 36,50 50,42" fill="url(#glow)"/>
+  <!-- Stand -->
+  <rect x="30" y="68" width="24" height="3" rx="1.5" fill="#3b82f6" opacity="0.5"/>
+  <rect x="34" y="66" width="16" height="4" rx="1" fill="#3b82f6" opacity="0.3"/>
+  
+  <!-- Signal waves (top-right of TV) -->
+  <path d="M62 24 Q68 18 74 24" stroke="#3b82f6" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M60 20 Q70 12 80 20" stroke="#3b82f6" stroke-width="1.5" fill="none" opacity="0.25"/>
+
+  <!-- Brand text: MUPSONG -->
+  <text x="92" y="56" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="38" font-weight="700" letter-spacing="3" fill="url(#textGrad)">MUPSONG</text>
+  
+  <!-- Tagline -->
+  <text x="94" y="72" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="10" font-weight="400" letter-spacing="5" fill="#3b82f6" opacity="0.7">STREAM BEYOND</text>
+</svg>

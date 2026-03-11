@@ -8,14 +8,12 @@ import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { useCart } from '@/lib/cart'
 import { useState } from 'react'
-import { use } from 'react'
 
-export default function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = use(params)
-  const product = getProduct(slug)
+export default function ProductDetailPage({ params }: { params: { slug: string } }) {
+  const product = getProduct(params.slug)
   if (!product) notFound()
 
-  const [selectedVariant, setSelectedVariant] = useState(product.variants[1]) // default to Pro
+  const [selectedVariant, setSelectedVariant] = useState(product.variants[1] ?? product.variants[0])
   const { addItem } = useCart()
 
   const handleAddToCart = () => {
@@ -53,10 +51,9 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
             )}
           </div>
 
-          {/* Variant selector */}
           <div className="mt-8">
             <p className="text-sm font-medium text-gray-400">Select Model</p>
-            <div className="mt-3 flex gap-3">
+            <div className="mt-3 flex flex-wrap gap-3">
               {product.variants.map((variant) => (
                 <button
                   key={variant.id}
@@ -84,20 +81,18 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
 
           <Separator className="my-8 bg-white/10" />
 
-          {/* Description */}
           <div>
             <h2 className="text-lg font-semibold text-white">About this product</h2>
             <p className="mt-2 text-gray-400">{product.description}</p>
           </div>
 
-          {/* Specs */}
           <div className="mt-8">
             <h2 className="text-lg font-semibold text-white">Specifications</h2>
             <dl className="mt-4 space-y-3">
               {Object.entries(product.specs).map(([key, value]) => (
-                <div key={key} className="flex justify-between text-sm">
+                <div key={key} className="flex justify-between gap-4 text-sm">
                   <dt className="capitalize text-gray-400">{key}</dt>
-                  <dd className="text-white">{value}</dd>
+                  <dd className="text-right text-white">{value}</dd>
                 </div>
               ))}
             </dl>
