@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { ShoppingCart } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -22,8 +23,8 @@ export function Header() {
     <>
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0a0a0a]/80 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <Link href="/" className="text-xl font-bold tracking-tight text-white">
-            Mupsong
+          <Link href="/" className="flex items-center">
+            <Image src="/logo-mupsong-dark.svg" alt="Mupsong" width={180} height={40} priority />
           </Link>
 
           <nav className="hidden items-center gap-8 md:flex">
