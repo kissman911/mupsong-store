@@ -1,6 +1,7 @@
 'use client'
 
 import { use, useState } from 'react'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { getProduct, formatPrice } from '@/lib/products'
 import { ProductGallery } from '@/components/ProductGallery'
@@ -14,7 +15,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
   const product = getProduct(slug)
   if (!product) notFound()
 
-  const [selectedVariant, setSelectedVariant] = useState(product.variants[1] ?? product.variants[0])
+  const [selectedVariant, setSelectedVariant] = useState(product.variants[0])
   const { addItem } = useCart()
 
   const handleAddToCart = () => {
@@ -100,6 +101,27 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
       </div>
+
+      {/* Detail images */}
+      {product.detailImages && product.detailImages.length > 0 && (
+        <div className="mt-16 border-t border-white/10 pt-12">
+          <h2 className="text-center text-2xl font-bold text-white">Product Details</h2>
+          <div className="mx-auto mt-8 max-w-3xl space-y-8">
+            {product.detailImages.map((src, i) => (
+              <div key={src} className="relative w-full overflow-hidden rounded-lg bg-white">
+                <Image
+                  src={src}
+                  alt={`${product.name} detail ${i + 1}`}
+                  width={1000}
+                  height={1000}
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  className="h-auto w-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

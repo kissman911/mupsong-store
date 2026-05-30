@@ -2,26 +2,40 @@
   "id": "mupsong-pro",
   "slug": "mupsong-pro",
   "name": "Mupsong Pro",
-  "tagline": "Your Gateway to Unlimited Entertainment",
-  "description": "Experience seamless 4K streaming with the Mupsong Pro. Powered by cutting-edge hardware and an optimized smart OS.",
-  "price": 11900,
-  "comparePrice": 14900,
-  "images": ["/images/products/mupsong-pro-1.jpg", "/images/products/mupsong-pro-2.jpg", "/images/products/mupsong-pro-3.jpg"],
+  "tagline": "4K Android 14 TV Box · Powered by Amlogic S905Y5",
+  "description": "Turn any TV into a smart streaming hub. The Mupsong Pro runs Android 14 on the quad-core Amlogic S905Y5 chipset, delivering smooth 4K Ultra HD playback, fast dual-band 5G WiFi, and a clean voice-remote experience. Plug in via HDMI, sign in to your favorite apps, and start streaming in minutes.",
+  "price": 3000,
+  "comparePrice": 4500,
+  "images": [
+    "/images/products/gallery-1-box-retail.jpg",
+    "/images/products/gallery-2-box-remote.jpg",
+    "/images/products/gallery-3-box-front.jpg",
+    "/images/products/gallery-4-connection.jpg",
+    "/images/products/gallery-5-chipset.jpg"
+  ],
+  "detailImages": [
+    "/images/products/detail-1-advantages.jpg",
+    "/images/products/detail-3-accessories.jpg",
+    "/images/products/detail-4-packaging.jpg"
+  ],
   "specs": {
-    "cpu": "TBD",
-    "gpu": "TBD",
-    "ram": "TBD",
-    "storage": "TBD",
-    "os": "Android TV",
-    "wifi": "TBD",
-    "bluetooth": "TBD",
-    "hdmi": "HDMI 2.1",
-    "resolution": "4K Ultra HD"
+    "chipset": "Amlogic S905Y5",
+    "cpu": "Quad-core",
+    "ram": "2GB / 4GB (by model)",
+    "storage": "16GB / 32GB (by model)",
+    "os": "Android 14",
+    "resolution": "4K Ultra HD",
+    "wifi": "Dual-band 5G WiFi",
+    "bluetooth": "Bluetooth",
+    "hdmi": "HDMI",
+    "ports": "TF Card, 2x USB, AV, SPDIF, Ethernet, HDMI",
+    "inTheBox": "TV Box, Voice Remote, HDMI Cable, Power Adapter, User Guide"
   },
   "variants": [
-    { "id": "standard", "name": "Standard", "price": 9900, "sku": "MPS-STD-001", "stock": 100 },
-    { "id": "pro", "name": "Pro", "price": 11900, "sku": "MPS-PRO-001", "stock": 100 },
-    { "id": "max", "name": "Max", "price": 13900, "sku": "MPS-MAX-001", "stock": 50 }
+    { "id": "2g16g-eu", "name": "2GB+16GB · EU Plug", "price": 3000, "sku": "MPS-216-EU", "stock": 100 },
+    { "id": "2g16g-us", "name": "2GB+16GB · US Plug", "price": 3000, "sku": "MPS-216-US", "stock": 100 },
+    { "id": "4g32g-eu", "name": "4GB+32GB · EU Plug", "price": 3500, "sku": "MPS-432-EU", "stock": 100 },
+    { "id": "4g32g-us", "name": "4GB+32GB · US Plug", "price": 3500, "sku": "MPS-432-US", "stock": 100 }
   ],
   "inStock": true
 }

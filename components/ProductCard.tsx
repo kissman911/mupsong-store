@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Product } from '@/lib/types'
@@ -16,8 +17,14 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
       <Card className="group overflow-hidden border-white/10 bg-[#141414] transition-all duration-300 hover:border-blue-500/30 hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/10">
-        <div className="relative flex aspect-square items-center justify-center bg-gray-800 text-sm text-gray-400 overflow-hidden">
-          <span className="transition-transform duration-500 group-hover:scale-110">Product Image</span>
+        <div className="relative flex aspect-square items-center justify-center overflow-hidden bg-white">
+          <Image
+            src={product.images[0]}
+            alt={product.name}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-contain transition-transform duration-500 group-hover:scale-110"
+          />
           {/* Hover shine effect */}
           <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/5 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
         </div>

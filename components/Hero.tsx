@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 export function Hero() {
@@ -40,8 +41,8 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mt-6 text-lg text-gray-400 sm:text-xl"
             >
-              The Mupsong Pro delivers lightning-fast performance, an intuitive smart OS, and
-              crystal-clear 4K resolution — all in a compact box that fits anywhere.
+              The Mupsong Pro runs Android 14 on the quad-core Amlogic S905Y5, with smooth 4K
+              playback and dual-band 5G WiFi — all in a compact box that fits anywhere.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -73,12 +74,16 @@ export function Hero() {
             <motion.div
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              className="flex aspect-square items-center justify-center rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 text-gray-400 shadow-2xl shadow-blue-500/10"
+              className="relative flex aspect-square items-center justify-center overflow-hidden rounded-2xl bg-white shadow-2xl shadow-blue-500/10"
             >
-              <div className="text-center">
-                <div className="text-6xl">📺</div>
-                <p className="mt-4 text-sm">Mupsong Pro</p>
-              </div>
+              <Image
+                src="/images/products/gallery-1-box-retail.jpg"
+                alt="Mupsong Pro Android TV Box with remote and retail box"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-contain p-4"
+              />
             </motion.div>
             {/* Glow ring */}
             <div className="absolute -inset-1 -z-10 rounded-2xl bg-gradient-to-r from-blue-500/20 to-cyan-500/20 blur-xl" />

@@ -7,6 +7,7 @@ export interface Product {
   price: number // in cents
   comparePrice?: number
   images: string[]
+  detailImages?: string[]
   specs: Record<string, string>
   variants: Variant[]
   inStock: boolean

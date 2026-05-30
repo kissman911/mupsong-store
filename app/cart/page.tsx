@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Minus, Plus, Trash2 } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, totalPrice, totalItems } = useCart()
@@ -33,8 +34,20 @@ export default function CartPage() {
             key={`${item.productId}-${item.variantId}`}
             className="flex gap-4 rounded-lg bg-[#141414] p-4 sm:gap-6"
           >
-            <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-md bg-gray-800 text-xs text-gray-400">
-              Product Image
+            <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-md bg-white">
+              {item.image ? (
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  fill
+                  sizes="96px"
+                  className="object-contain"
+                />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center text-xs text-gray-400">
+                  No image
+                </div>
+              )}
             </div>
             <div className="flex flex-1 flex-col justify-between">
               <div className="flex items-start justify-between">
