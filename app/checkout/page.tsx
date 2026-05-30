@@ -6,11 +6,16 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
+import { SHIPPING_ZONES, DEFAULT_ZONE_ID, getShippingRate } from '@/lib/shipping'
 import { useState } from 'react'
 
 export default function CheckoutPage() {
   const { items, totalPrice } = useCart()
   const [loading, setLoading] = useState(false)
+  const [zoneId, setZoneId] = useState(DEFAULT_ZONE_ID)
+
+  const shipping = getShippingRate(zoneId)
+  const grandTotal = totalPrice + shipping
 
   const handleCheckout = async () => {
     setLoading(true)
@@ -18,7 +23,7 @@ export default function CheckoutPage() {
       const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items }),
+        body: JSON.stringify({ items, zoneId }),
       })
       const data = await res.json()
       if (data.url) {
@@ -83,6 +88,21 @@ export default function CheckoutPage() {
           <h2 className="text-lg font-semibold text-white">Shipping Address</h2>
           <div className="space-y-4">
             <div>
+              <Label htmlFor="region" className="text-gray-400">Shipping Region</Label>
+              <select
+                id="region"
+                value={zoneId}
+                onChange={(e) => setZoneId(e.target.value)}
+                className="mt-1 w-full rounded-md border border-white/10 bg-[#141414] px-3 py-2 text-sm text-white"
+              >
+                {SHIPPING_ZONES.map((z) => (
+                  <option key={z.id} value={z.id}>
+                    {z.label} — {formatPrice(z.rate)} shipping
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
               <Label htmlFor="address" className="text-gray-400">Address</Label>
               <Input
                 id="address"
@@ -129,15 +149,19 @@ export default function CheckoutPage() {
           </div>
           <Separator className="my-4 bg-white/10" />
           <div className="flex justify-between text-sm text-gray-400">
+            <span>Subtotal</span>
+            <span className="text-white">{formatPrice(totalPrice)}</span>
+          </div>
+          <div className="mt-2 flex justify-between text-sm text-gray-400">
             <span>Shipping</span>
-            <span className="text-white">Calculated separately</span>
+            <span className="text-white">{formatPrice(shipping)}</span>
           </div>
           <Separator className="my-4 bg-white/10" />
           <div className="flex justify-between">
-            <span className="font-medium text-gray-400">Subtotal</span>
-            <span className="text-xl font-bold text-white">{formatPrice(totalPrice)}</span>
+            <span className="font-medium text-gray-400">Total</span>
+            <span className="text-xl font-bold text-white">{formatPrice(grandTotal)}</span>
           </div>
-          <p className="mt-2 text-xs text-gray-500">Prices exclude shipping. Shipping is arranged after your order.</p>
+          <p className="mt-2 text-xs text-gray-500">Shipping is based on your selected region.</p>
 
           <Button
             size="lg"

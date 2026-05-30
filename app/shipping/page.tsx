@@ -36,22 +36,27 @@ export default function ShippingPage() {
                 <tr>
                   <td className="px-4 py-3">United States</td>
                   <td className="px-4 py-3">3–7 business days</td>
-                  <td className="px-4 py-3 text-white">Free</td>
+                  <td className="px-4 py-3 text-white">$10.00</td>
                 </tr>
                 <tr>
-                  <td className="px-4 py-3">Canada</td>
-                  <td className="px-4 py-3">5–10 business days</td>
-                  <td className="px-4 py-3 text-white">$9.99</td>
-                </tr>
-                <tr>
-                  <td className="px-4 py-3">Europe</td>
+                  <td className="px-4 py-3">Europe (EU)</td>
                   <td className="px-4 py-3">7–14 business days</td>
-                  <td className="px-4 py-3 text-white">$14.99</td>
+                  <td className="px-4 py-3 text-white">$14.00</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3">United Kingdom</td>
+                  <td className="px-4 py-3">7–14 business days</td>
+                  <td className="px-4 py-3 text-white">$12.00</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3">Australia</td>
+                  <td className="px-4 py-3">7–14 business days</td>
+                  <td className="px-4 py-3 text-white">$10.00</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3">Rest of World</td>
                   <td className="px-4 py-3">10–21 business days</td>
-                  <td className="px-4 py-3 text-white">$19.99</td>
+                  <td className="px-4 py-3 text-white">$11.00</td>
                 </tr>
               </tbody>
             </table>

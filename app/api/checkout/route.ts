@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getStripe } from '@/lib/stripe'
 import { CartItem } from '@/lib/types'
+import { getZone } from '@/lib/shipping'
 
 export async function POST(req: NextRequest) {
   const stripe = getStripe()
@@ -13,27 +14,43 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const { items } = (await req.json()) as { items: CartItem[] }
+    const { items, zoneId } = (await req.json()) as { items: CartItem[]; zoneId?: string }
 
     if (!items || items.length === 0) {
       return NextResponse.json({ error: 'Cart is empty' }, { status: 400 })
     }
 
+    const zone = getZone(zoneId)
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+
+    const lineItems = items.map((item) => ({
+      price_data: {
+        currency: 'usd',
+        product_data: {
+          name: `${item.name} — ${item.variantName}`,
+        },
+        unit_amount: item.price,
+      },
+      quantity: item.quantity,
+    }))
+
+    if (zone.rate > 0) {
+      lineItems.push({
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: `Shipping — ${zone.label}`,
+          },
+          unit_amount: zone.rate,
+        },
+        quantity: 1,
+      })
+    }
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       payment_method_types: ['card'],
-      line_items: items.map((item) => ({
-        price_data: {
-          currency: 'usd',
-          product_data: {
-            name: `${item.name} — ${item.variantName}`,
-          },
-          unit_amount: item.price,
-        },
-        quantity: item.quantity,
-      })),
+      line_items: lineItems,
       success_url: `${siteUrl}/order/{CHECKOUT_SESSION_ID}`,
       cancel_url: `${siteUrl}/cart`,
     })
