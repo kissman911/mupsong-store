@@ -130,13 +130,14 @@ export default function CheckoutPage() {
           <Separator className="my-4 bg-white/10" />
           <div className="flex justify-between text-sm text-gray-400">
             <span>Shipping</span>
-            <span className="text-white">Free</span>
+            <span className="text-white">Calculated separately</span>
           </div>
           <Separator className="my-4 bg-white/10" />
           <div className="flex justify-between">
-            <span className="font-medium text-gray-400">Total</span>
+            <span className="font-medium text-gray-400">Subtotal</span>
             <span className="text-xl font-bold text-white">{formatPrice(totalPrice)}</span>
           </div>
+          <p className="mt-2 text-xs text-gray-500">Prices exclude shipping. Shipping is arranged after your order.</p>
 
           <Button
             size="lg"

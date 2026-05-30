@@ -94,9 +94,10 @@ export default function CartPage() {
       <Separator className="my-8 bg-white/10" />
 
       <div className="flex items-center justify-between">
-        <span className="text-lg text-gray-400">Total</span>
+        <span className="text-lg text-gray-400">Subtotal</span>
         <span className="text-2xl font-bold text-white">{formatPrice(totalPrice)}</span>
       </div>
+      <p className="mt-1 text-right text-xs text-gray-500">Shipping not included</p>
 
       <Button render={<Link href="/checkout" />} size="lg" className="mt-6 w-full bg-blue-500 hover:bg-blue-600">
         Proceed to Checkout

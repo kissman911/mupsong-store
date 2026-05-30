@@ -41,6 +41,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
               </span>
             )}
           </div>
+          <p className="mt-1 text-xs text-gray-500">Excl. shipping</p>
           <Button render={<Link href={`/products/${product.slug}`} />} className="mt-4 w-full bg-blue-500 hover:bg-blue-600 transition-all hover:shadow-md hover:shadow-blue-500/25">
             View Details
           </Button>

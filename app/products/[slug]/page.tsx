@@ -52,6 +52,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
               </span>
             )}
           </div>
+          <p className="mt-1 text-sm text-gray-500">Shipping not included</p>
 
           <div className="mt-8">
             <p className="text-sm font-medium text-gray-400">Select Model</p>
