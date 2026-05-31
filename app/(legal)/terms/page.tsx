@@ -22,8 +22,8 @@ export default function TermsPage() {
         <section>
           <h2 className="text-lg font-semibold text-white">2. Products & Pricing</h2>
           <p className="mt-2">
-            All prices are listed in USD. We reserve the right to change prices at any time without
-            notice. Prices at the time of purchase are final.
+            We reserve the right to change prices at any time without notice. Prices at the time of
+            purchase are final.
           </p>
         </section>
 

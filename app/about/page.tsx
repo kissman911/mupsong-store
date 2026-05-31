@@ -39,6 +39,29 @@ export default function AboutPage() {
             something isn&apos;t right, our support team will make it right — no questions asked.
           </p>
         </div>
+
+        <div>
+          <h2 className="text-xl font-semibold text-white">Company Information</h2>
+          <ul className="mt-2 space-y-1">
+            <li>
+              <span className="text-gray-500">Company Name:</span> Mupsong
+            </li>
+            <li>
+              <span className="text-gray-500">Registration No.:</span> 80375263-000-05-26-8
+            </li>
+            <li>
+              <span className="text-gray-500">WhatsApp:</span>{' '}
+              <a
+                href="https://wa.me/8615262721627"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:underline"
+              >
+                +86 152 6272 1627
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   )
